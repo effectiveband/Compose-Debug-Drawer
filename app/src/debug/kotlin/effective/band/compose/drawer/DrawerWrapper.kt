@@ -17,6 +17,7 @@ import effective.band.compose.drawer.modules.DemoActionsModule
 import effective.band.compose.drawer_base.DebugDrawerLayout
 import effective.band.compose.drawer_modules.BuildModule
 import effective.band.compose.drawer_modules.DeviceModule
+import effective.band.compose.drawer_modules.timber_module.TimberModule
 import effective.band.compose.drawer_ui_modules.design.DebugGridLayer
 import effective.band.compose.drawer_ui_modules.design.DebugGridStateConfig
 import effective.band.compose.drawer_ui_modules.design.DesignModule
@@ -47,6 +48,7 @@ fun ConfigureScreen(bodyContent: @Composable (isDrawerOpen: Boolean) -> Unit) {
             DemoActionsModule(modulesModifier)
             BuildModule(modulesModifier)
             DeviceModule(modulesModifier)
+            TimberModule(modulesModifier)
         },
         bodyContent = { drawerState ->
             Box {

@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="effective.band.compose.drawer_modules" />
+<manifest package="effective.band.compose.drawer_modules"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+
+        <provider
+            android:name=".timber_module.DebugDrawerTimberFileProvider"
+            android:authorities="${applicationId}.drawer_modules.timber_module.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths"
+                />
+
+        </provider>
+
+        <provider
+            android:name=".timber_module.LumberYardInstaller"
+            android:authorities="${applicationId}.lumberyard-installer"
+            android:exported="false"
+            />
+
+    </application>
+</manifest>
