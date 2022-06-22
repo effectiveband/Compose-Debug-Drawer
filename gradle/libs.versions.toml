@@ -1,0 +1,25 @@
+[versions]
+
+androidx-compose-activity = "1.4.0"
+androidx-foundation = "1.2.0-rc01"
+compose-ui = "1.2.0-rc01"
+compose-material = "1.2.0-rc01"
+desugaring = "1.1.5"
+
+[libraries]
+
+androidx-compose-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-compose-activity" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidx-foundation" }
+androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "androidx-foundation" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
+androidx-compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
+androidx-compose-material-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose-material" }
+
+androidx-compose-junit = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose-ui" }
+androidx-compose-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose-ui" }
+
+desugaring = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugaring" }
+
+[bundles]
+
