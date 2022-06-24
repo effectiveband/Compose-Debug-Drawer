@@ -20,18 +20,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
@@ -44,32 +37,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.core.content.FileProvider
-import effective.band.compose.drawer_modules.ActionsModule
-import effective.band.compose.drawer_modules.actions.ButtonAction
 import java.io.File
-
-@Composable
-fun TimberModule(modifier: Modifier) {
-
-    var isLogsAlertDialogVisible by remember {
-        mutableStateOf(false)
-    }
-
-    ActionsModule(
-        modifier = modifier,
-        icon = { Icon(imageVector = Icons.Default.Info, contentDescription = "Timber logs info") },
-        title = "Timber logs",
-        showBadge = false,
-    ) {
-        ButtonAction(text = "SHOW LOGS") {
-            isLogsAlertDialogVisible = true
-        }
-    }
-
-    if (isLogsAlertDialogVisible) {
-        LogsAlertDialog { isLogsAlertDialogVisible = false }
-    }
-}
 
 @Composable
 fun LogsAlertDialog(onDismiss: () -> Unit) {
@@ -78,7 +46,7 @@ fun LogsAlertDialog(onDismiss: () -> Unit) {
     Dialog(onDismissRequest = onDismiss) {
         Scaffold(topBar = {
             Box(modifier = Modifier.padding(16.dp)) {
-                Text(text = "Timber logs", style = typography.h5)
+                Text(text = "Logs", style = typography.h5)
             }
         }, bottomBar = {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {

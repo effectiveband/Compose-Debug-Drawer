@@ -3,4 +3,8 @@
     <string name="leakcanary">LeakCanary</string>
     <string name="view_leaks">View leaks</string>
     <string name="enable_heap_dumps">Enable heap dumps</string>
+    <string name="http">HTTP level</string>
+    <string name="show_logs">Show logs</string>
+    <string name="logs">Logs</string>
+
 </resources>

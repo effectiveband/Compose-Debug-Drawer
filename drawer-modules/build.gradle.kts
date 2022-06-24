@@ -53,7 +53,9 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.material.icons)
-    implementation(libs.leaks.canary)
+    implementation(libs.okhttp.client)
+    implementation(libs.okhttp.logging)
     implementation(libs.timber)
+    debugImplementation(libs.leak.canary)
     implementation(libs.androidx.core)
 }
