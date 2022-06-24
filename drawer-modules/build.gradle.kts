@@ -54,4 +54,6 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.material.icons)
     implementation(libs.leaks.canary)
+    implementation(libs.timber)
+    implementation(libs.androidx.core)
 }

@@ -60,4 +60,5 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.material)
     implementation(libs.leaks.canary)
+    implementation(libs.timber)
 }
