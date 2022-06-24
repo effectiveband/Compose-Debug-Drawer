@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="leakcanary">LeakCanary</string>
+    <string name="view_leaks">View leaks</string>
+    <string name="enable_heap_dumps">Enable heap dumps</string>
+</resources>

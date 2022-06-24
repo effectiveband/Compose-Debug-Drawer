@@ -5,6 +5,7 @@ androidx-foundation = "1.2.0-rc01"
 compose-ui = "1.2.0-rc01"
 compose-material = "1.2.0-rc01"
 desugaring = "1.1.5"
+leaks-canary = "2.9.1"
 timber = "5.0.1"
 androidx-core="1.8.0"
 
@@ -23,6 +24,8 @@ androidx-compose-junit = { module = "androidx.compose.ui:ui-test-junit4", versio
 androidx-compose-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose-ui" }
 
 desugaring = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugaring" }
+
+leaks-canary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leaks-canary" }
 
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
