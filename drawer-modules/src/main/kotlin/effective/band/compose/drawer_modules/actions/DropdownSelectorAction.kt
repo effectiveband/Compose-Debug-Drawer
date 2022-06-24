@@ -4,7 +4,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material.*
+import androidx.compose.material.DropdownMenu
+import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -18,7 +22,6 @@ fun <T> DropdownSelectorAction(
     items: List<T>,
     itemFormatter: (T) -> String = { itemFormat -> itemFormat.toString() },
     defaultValue: T? = null,
-    label: String? = null,
     onItemSelected: (T) -> Unit,
 ) {
     val textState = remember { mutableStateOf(defaultValue?.let(itemFormatter) ?: "") }
@@ -40,7 +43,6 @@ fun <T> DropdownSelectorAction(
                     DropdownIcon(isExpanded = isExpanded.value)
                 }
             },
-            label = { label?.let { Text(text = label) } },
             onValueChange = { },
         )
         if (isExpanded.value) {

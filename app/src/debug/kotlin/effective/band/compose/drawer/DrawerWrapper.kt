@@ -12,13 +12,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import effective.band.compose.drawer.modules.DemoActionsModule
 import effective.band.compose.drawer_base.DebugDrawerLayout
 import effective.band.compose.drawer_modules.BuildModule
 import effective.band.compose.drawer_modules.DeviceModule
 import effective.band.compose.drawer_modules.leak.LeakCanaryModule
-import effective.band.compose.drawer_modules.timber_module.TimberModule
+import effective.band.compose.drawer_modules.okhttp_logger.HttpLogger
+import effective.band.compose.drawer_modules.okhttp_logger.OkHttpLoggerModule
 import effective.band.compose.drawer_ui_modules.design.DebugGridLayer
 import effective.band.compose.drawer_ui_modules.design.DebugGridStateConfig
 import effective.band.compose.drawer_ui_modules.design.DesignModule
@@ -46,11 +47,10 @@ fun ConfigureScreen(bodyContent: @Composable (isDrawerOpen: Boolean) -> Unit) {
             DesignModule(modulesModifier, config = debugGridLayerConfig) {
                 debugGridLayerConfig = it
             }
-            DemoActionsModule(modulesModifier)
             BuildModule(modulesModifier)
             DeviceModule(modulesModifier)
+            OkHttpLoggerModule(modulesModifier, HttpLogger(LocalContext.current))
             LeakCanaryModule(modulesModifier)
-            TimberModule(modulesModifier)
         },
         bodyContent = { drawerState ->
             Box {
