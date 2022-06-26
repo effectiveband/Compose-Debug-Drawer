@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.okhttp_logger
+package band.effective.drawer_okhttplogger
 
 class HttpLoggerActions(private val httpLogger: HttpLogger){
 

@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.okhttp_logger
+package band.effective.drawer_okhttplogger
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,12 +16,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import band.effective.drawer_timber_module.LogsAlertDialog
 import effective.band.compose.drawer_modules.ActionsModule
 import effective.band.compose.drawer_modules.MediumText
 import effective.band.compose.drawer_modules.R
 import effective.band.compose.drawer_modules.actions.ButtonAction
 import effective.band.compose.drawer_modules.actions.DropdownSelectorAction
-import effective.band.compose.drawer_modules.timber_module.LogsAlertDialog
 import okhttp3.logging.HttpLoggingInterceptor
 
 @Composable

@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.leak
+package band.effective.leak
 
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable

@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.timber_module
+package band.effective.drawer_timber_module
 
 import android.app.Application
 import android.os.AsyncTask
@@ -36,7 +36,7 @@ internal object LumberYard {
      * display logs from the debug drawer.
      */
     fun install(app: Application) {
-        this.app = app
+        LumberYard.app = app
         handler = Handler(app.mainLooper)
 
         CleanUpTask.execute()
@@ -57,7 +57,7 @@ internal object LumberYard {
 
     fun setListener(listener: (Entry) -> Unit) {
         assertInitialised()
-        this.listener = listener
+        LumberYard.listener = listener
     }
 
     fun clearListener() {

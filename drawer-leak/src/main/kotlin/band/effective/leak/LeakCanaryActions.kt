@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.leak
+package band.effective.leak
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
