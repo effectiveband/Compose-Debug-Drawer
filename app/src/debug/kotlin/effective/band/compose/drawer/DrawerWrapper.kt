@@ -14,6 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import band.effective.drawer_retrofit.DebugRetrofitConfig
+import band.effective.drawer_retrofit.Endpoint
+import band.effective.drawer_retrofit.RetrofitModule
 import effective.band.compose.drawer_base.DebugDrawerLayout
 import effective.band.compose.drawer_modules.BuildModule
 import effective.band.compose.drawer_modules.DeviceModule
@@ -23,11 +26,13 @@ import effective.band.compose.drawer_modules.okhttp_logger.OkHttpLoggerModule
 import effective.band.compose.drawer_ui_modules.design.DebugGridLayer
 import effective.band.compose.drawer_ui_modules.design.DebugGridStateConfig
 import effective.band.compose.drawer_ui_modules.design.DesignModule
+import retrofit2.mock.NetworkBehavior
 
 @Composable
 fun ConfigureScreen(bodyContent: @Composable (isDrawerOpen: Boolean) -> Unit) {
 
     val gridAlpha = LocalContentAlpha.current
+    val context = LocalContext.current
 
     var debugGridLayerConfig: DebugGridStateConfig by remember {
         mutableStateOf(
@@ -49,6 +54,17 @@ fun ConfigureScreen(bodyContent: @Composable (isDrawerOpen: Boolean) -> Unit) {
             }
             BuildModule(modulesModifier)
             DeviceModule(modulesModifier)
+            RetrofitModule(
+                modifier = modulesModifier,
+                config = DebugRetrofitConfig(
+                    context,
+                    endpoints = listOf(
+                        Endpoint("Development", "https//dev-endpoint", true),
+                        Endpoint("Production", "https//prod-endpoint", false),
+                    ),
+                    networkBehavior = NetworkBehavior.create()
+                )
+            )
             OkHttpLoggerModule(modulesModifier, HttpLogger(LocalContext.current))
             LeakCanaryModule(modulesModifier)
         },

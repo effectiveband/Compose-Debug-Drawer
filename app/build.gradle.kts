@@ -50,6 +50,7 @@ dependencies {
     debugImplementation(project(":drawer-ui-modules"))
     debugImplementation(project(":drawer-modules"))
     debugImplementation(project(":drawer-base"))
+    debugImplementation(project(":drawer-retrofit"))
 
     implementation(libs.androidx.compose.activity)
 
@@ -61,4 +62,7 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.leak.canary)
     implementation(libs.timber)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.retrofit.mock)
 }
