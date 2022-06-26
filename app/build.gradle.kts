@@ -68,4 +68,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.retrofit.mock)
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    implementation(libs.kotlinx.coroutines)
+    implementation(libs.coil.compose)
 }

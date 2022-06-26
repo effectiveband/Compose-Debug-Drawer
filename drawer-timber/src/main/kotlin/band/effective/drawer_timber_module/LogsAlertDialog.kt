@@ -34,6 +34,9 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.ExperimentalUnitApi
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.core.content.FileProvider
@@ -72,10 +75,15 @@ fun LogsAlertDialog(onDismiss: () -> Unit) {
     }
 }
 
+@OptIn(ExperimentalUnitApi::class)
 @Composable
 fun LogItem(entry: Entry) {
     val strokeWidth = 3.dp
-    Column(modifier = Modifier.startBorder(Border(strokeWidth, entry.displayColor()))) {
+    Column(
+        modifier = Modifier
+            .background(Color(0xffeeeeee))
+            .startBorder(Border(strokeWidth, entry.displayColor()))
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -89,16 +97,31 @@ fun LogItem(entry: Entry) {
                 Text(
                     text = entry.displayLevel(),
                     color = Color.White,
-                    modifier = Modifier.padding(8.dp)
+                    modifier = Modifier.padding(8.dp),
+                    fontSize = TextUnit(10f, TextUnitType.Sp),
+                    fontWeight = FontWeight.Bold
                 )
             }
             Spacer(modifier = Modifier.width(8.dp))
-            Text(text = entry.date)
+
+            entry.tag?.let {
+                Text(
+                    text = it, fontSize = TextUnit(10f, TextUnitType.Sp),
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1, color = Color.Black
+                )
+            }
 
             Spacer(modifier = Modifier.width(16.dp))
-            entry.tag?.let { Text(text = it, fontWeight = FontWeight.Bold) }
+
+            Text(text = entry.date, fontSize = TextUnit(10f, TextUnitType.Sp), color = Color.Black)
         }
-        Text(text = entry.message, modifier = Modifier.padding(strokeWidth + 8.dp))
+        Text(
+            text = entry.message,
+            modifier = Modifier.padding(strokeWidth + 8.dp),
+            fontSize = TextUnit(12f, TextUnitType.Sp),
+            color = Color.Black
+        )
     }
 }
 

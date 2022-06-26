@@ -13,5 +13,6 @@ class DrawerApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
         }
+        AppConfiguration.init(this)
     }
 }

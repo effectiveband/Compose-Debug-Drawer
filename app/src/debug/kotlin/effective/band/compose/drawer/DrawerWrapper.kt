@@ -14,22 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import band.effective.drawer_okhttplogger.HttpLogger
 import band.effective.drawer_okhttplogger.OkHttpLoggerModule
-import band.effective.drawer_retrofit.DebugRetrofitConfig
-import band.effective.drawer_retrofit.Endpoint
 import band.effective.drawer_retrofit.RetrofitModule
+import band.effective.leak.LeakCanaryModule
 import effective.band.compose.drawer_base.DebugDrawerLayout
 import effective.band.compose.drawer_modules.BuildModule
 import effective.band.compose.drawer_modules.DeviceModule
-import band.effective.leak.LeakCanaryModule
 import effective.band.compose.drawer_ui_modules.design.DebugGridLayer
 import effective.band.compose.drawer_ui_modules.design.DebugGridStateConfig
 import effective.band.compose.drawer_ui_modules.design.DesignModule
-import retrofit2.mock.NetworkBehavior
 
 @Composable
-fun ConfigureScreen(bodyContent: @Composable (isDrawerOpen: Boolean) -> Unit) {
+fun ConfigureScreen(bodyContent: @Composable () -> Unit) {
 
     val gridAlpha = LocalContentAlpha.current
     val context = LocalContext.current
@@ -56,21 +52,14 @@ fun ConfigureScreen(bodyContent: @Composable (isDrawerOpen: Boolean) -> Unit) {
             DeviceModule(modulesModifier)
             RetrofitModule(
                 modifier = modulesModifier,
-                config = DebugRetrofitConfig(
-                    context,
-                    endpoints = listOf(
-                        Endpoint("Development", "https//dev-endpoint", true),
-                        Endpoint("Production", "https//prod-endpoint", false),
-                    ),
-                    networkBehavior = NetworkBehavior.create()
-                )
+                config = AppConfiguration.debugRetrofitConfig
             )
-            OkHttpLoggerModule(modulesModifier, HttpLogger(LocalContext.current))
+            OkHttpLoggerModule(modulesModifier, AppConfiguration.httpLogger)
             LeakCanaryModule(modulesModifier)
         },
-        bodyContent = { drawerState ->
+        bodyContent = {
             Box {
-                bodyContent(drawerState.isOpen)
+                bodyContent()
                 DebugGridLayer(debugGridLayerConfig)
             }
         },

@@ -160,7 +160,7 @@ fun DebugDrawerLayout(
     drawerElevation: Dp = DebugDrawerDefaults.Elevation,
     drawerContentModifier: Modifier = Modifier,
     drawerModules: @Composable ColumnScope.(DebugDrawerState) -> Unit = { },
-    bodyContent: @Composable (DebugDrawerState) -> Unit,
+    bodyContent: @Composable () -> Unit,
 ) {
 
     val debugDrawerState: DebugDrawerState = rememberDebugDrawerState(DebugDrawerValue.Closed)
@@ -194,7 +194,7 @@ fun DebugDrawerLayout(
             )
         ) {
             Box {
-                bodyContent(debugDrawerState)
+                bodyContent()
             }
             MaterialTheme(
                 colors = drawerColors,
