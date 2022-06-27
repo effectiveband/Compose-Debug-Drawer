@@ -8,41 +8,44 @@ import effective.band.compose.drawer.network.GamesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class GamesViewModel : ViewModel() {
 
-    private val mutableState: MutableStateFlow<State> = MutableStateFlow(State.Idle)
+    data class State(
+        val isLoading: Boolean = true,
+        val games: List<Game> = emptyList(),
+        val error: String? = ""
+    )
+
+    private val mutableState: MutableStateFlow<State> = MutableStateFlow(State())
     val state: StateFlow<State> = mutableState.asStateFlow()
+    private val api: GamesApi = AppConfiguration.api
 
     init {
         loadData()
     }
 
-    fun loadData() {
-        mutableState.value = State.Loading
+    fun loadData() = viewModelScope.launch {
+        mutableState.update { it.copy(isLoading = true, error = null) }
 
-        viewModelScope.launch {
+        Timber.v("Fetching games list...")
 
-            Timber.v("Fetching games list...")
-            val api: GamesApi = AppConfiguration.api
-
-            try {
-                val response: GamesResponse = api.getGames()
-                mutableState.emit(State.Success(response.results))
-                Timber.v("Fetched games list successfully.")
-            } catch (e: Exception) {
-                Timber.e(e, "Something went wrong when fetching games list.")
-                mutableState.emit(State.Error)
+        try {
+            val response: GamesResponse = api.getGames()
+            mutableState.update {
+                it.copy(
+                    games = response.results,
+                    isLoading = false,
+                    error = null
+                )
             }
+            Timber.v("Fetched games list successfully.")
+        } catch (e: Exception) {
+            Timber.e(e, "Something went wrong when fetching games list.")
+            mutableState.update { it.copy(error = e.localizedMessage, isLoading = false) }
         }
-    }
-
-    sealed class State {
-        object Idle : State()
-        object Error : State()
-        object Loading : State()
-        data class Success(val games: List<Game>) : State()
     }
 }

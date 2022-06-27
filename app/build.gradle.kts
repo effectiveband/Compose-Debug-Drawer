@@ -72,4 +72,5 @@ dependencies {
     implementation(libs.moshi.kotlin)
     implementation(libs.kotlinx.coroutines)
     implementation(libs.coil.compose)
+    implementation(libs.accompanist.swiperefresh)
 }

@@ -86,13 +86,14 @@ fun RetrofitModule(modifier: Modifier, config: DebugRetrofitConfig) {
                     modifier = Modifier
                         .weight(1f)
                 )
+
                 DropdownSelectorAction(
-                    items = NetworkParams.delayValues,
+                    items = NetworkParams.DelayVariant.values().asList(),
                     enabled = isMock,
-                    defaultValue = config.delayMs,
-                    itemFormatter = { long -> "${long}ms" },
+                    defaultValue = NetworkParams.DelayVariant.values()
+                        .find { it.delayValue == config.delayMs },
                     onItemSelected = {
-                        config.delayMs = it
+                        config.delayMs = it.delayValue
                     }
                 )
             }
