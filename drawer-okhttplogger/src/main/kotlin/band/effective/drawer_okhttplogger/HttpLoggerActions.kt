@@ -1,8 +1,14 @@
 package band.effective.drawer_okhttplogger
 
-class HttpLoggerActions(private val httpLogger: HttpLogger){
+import okhttp3.logging.HttpLoggingInterceptor
 
-    fun setLevel(position: Int){
+class HttpLoggerActions(private val httpLogger: HttpLogger) {
+
+    fun getStoredLevel(): HttpLoggingInterceptor.Level {
+        return HttpLoggingInterceptor.Level.values()[httpLogger.getStoredLevelPosition()]
+    }
+
+    fun setLevel(position: Int) {
         httpLogger.setLevel(position)
     }
 }

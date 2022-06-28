@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import band.effective.drawer_location.LocationModule
 import band.effective.drawer_okhttplogger.OkHttpLoggerModule
 import band.effective.drawer_retrofit.RetrofitModule
 import band.effective.leak.LeakCanaryModule
@@ -56,6 +57,7 @@ fun ConfigureScreen(bodyContent: @Composable () -> Unit) {
             )
             OkHttpLoggerModule(modulesModifier, AppConfiguration.httpLogger)
             LeakCanaryModule(modulesModifier)
+            LocationModule(modulesModifier)
         },
         bodyContent = {
             Box {

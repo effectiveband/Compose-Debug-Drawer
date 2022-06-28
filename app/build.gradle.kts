@@ -54,6 +54,7 @@ dependencies {
     debugImplementation(project(":drawer-retrofit"))
     debugImplementation(project(":drawer-leak"))
     debugImplementation(project(":drawer-timber"))
+    debugImplementation(project(":drawer-location"))
 
     implementation(libs.androidx.compose.activity)
 

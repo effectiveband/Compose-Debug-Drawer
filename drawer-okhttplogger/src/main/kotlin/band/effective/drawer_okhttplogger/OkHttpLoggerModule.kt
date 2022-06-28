@@ -46,7 +46,7 @@ fun OkHttpLoggerModule(modifier: Modifier, httpLogger: HttpLogger) {
                     onItemSelected = {
                         httpLoggerActions.setLevel(it.ordinal)
                     },
-                    defaultValue = HttpLoggingInterceptor.Level.values().first()
+                    defaultValue = httpLoggerActions.getStoredLevel()
                 )
             }
             ButtonAction(text = stringResource(id = R.string.show_logs)) {
