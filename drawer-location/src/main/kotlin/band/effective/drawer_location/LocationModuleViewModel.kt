@@ -13,9 +13,9 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class LocationModuleViewModel(private val context: Context) {
@@ -34,14 +34,12 @@ class LocationModuleViewModel(private val context: Context) {
         maxWaitTime = 100
     }
 
-    suspend fun loadLocation() = scope.async {
-        mutableState.value = null
+    fun loadLocation() = scope.launch {
         if (ActivityCompat.checkSelfPermission(
                 context,
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            Timber.e("PackageManager.PERMISSION_GRANTED")
             fusedLocationClient.lastLocation.addOnFailureListener {
                 Timber.e(it)
             }
@@ -62,8 +60,6 @@ class LocationModuleViewModel(private val context: Context) {
                     );
                 }
             }
-        } else {
-            Timber.e("PackageManager.PERMISSION_DENIED")
         }
-    }.await()
+    }
 }

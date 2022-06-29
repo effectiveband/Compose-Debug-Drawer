@@ -56,5 +56,4 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.androidx.core)
     implementation(libs.play.services.location)
-    implementation(libs.accompanist.permissions)
 }
