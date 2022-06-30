@@ -13,7 +13,7 @@ data class DebugGridStateConfig internal constructor(
         operator fun invoke(
             isEnabled: Boolean = false,
             alpha: Float = 0.3f,
-            size: Dp = 8.dp,
+            size: Dp = 4.dp,
         ) = DebugGridStateConfig(
             isEnabled = isEnabled,
             alpha = alpha,

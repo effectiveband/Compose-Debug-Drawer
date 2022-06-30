@@ -7,8 +7,8 @@ object NetworkParams {
     val errorCodeValues: List<Int> = listOf(400, 401, 403, 500, 501, 503, 504)
 
     enum class DelayVariant(val delayValue: Long) {
-        LOW_SPEED(delayValue = 5000),
-        MEDIUM_SPEED(delayValue = 2000),
-        HIGH_SPEED(delayValue = 250),
+        Low(delayValue = 5000),
+        Medium(delayValue = 2000),
+        High(delayValue = 250),
     }
 }

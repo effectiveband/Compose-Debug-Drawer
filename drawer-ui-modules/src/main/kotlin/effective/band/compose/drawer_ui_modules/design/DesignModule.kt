@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import effective.band.compose.drawer_base.DebugDrawerModule
 import effective.band.compose.drawer_modules.actions.SwitchAction
+import kotlin.math.roundToInt
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -99,13 +100,13 @@ fun SizeSlider(
     ) {
 
         Text(
-            text = "Size: ${config.size.value.toInt()}dp",
+            text = "Size: ${config.size.value.roundToInt()}dp",
             style = MaterialTheme.typography.caption
         )
         Slider(
             value = config.size.value,
-            valueRange = 8.dp.value..64.dp.value,
-            steps = 8,
+            valueRange = 4f..48f,
+            steps = 10,
             onValueChange = { size ->
                 val result = config.copy(size = size.dp)
                 onChange(result)

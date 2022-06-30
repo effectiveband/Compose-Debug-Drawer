@@ -91,7 +91,7 @@ fun RetrofitModule(modifier: Modifier, config: DebugRetrofitConfig) {
                     items = NetworkParams.DelayVariant.values().asList(),
                     enabled = isMock,
                     defaultValue = NetworkParams.DelayVariant.values()
-                        .find { it.delayValue == config.delayMs },
+                        .find { it.delayValue == config.delayMs } ?: NetworkParams.DelayVariant.values()[0],
                     onItemSelected = {
                         config.delayMs = it.delayValue
                     }

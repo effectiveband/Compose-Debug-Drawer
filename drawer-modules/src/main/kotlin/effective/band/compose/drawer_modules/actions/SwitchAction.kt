@@ -68,7 +68,7 @@ fun SwitchAction(
         Switch(
             modifier = actionSwitchSemanticModifier,
             colors = SwitchDefaults.colors(
-                checkedThumbColor = MaterialTheme.colors.primary,
+                checkedThumbColor = MaterialTheme.colors.secondary,
                 uncheckedThumbColor = MaterialTheme.colors.onSurface,
                 checkedTrackAlpha = 0.6f,
                 uncheckedTrackAlpha = 0.4f

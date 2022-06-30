@@ -29,13 +29,12 @@ import effective.band.compose.drawer_ui_modules.design.DesignModule
 fun ConfigureScreen(bodyContent: @Composable () -> Unit) {
 
     val gridAlpha = LocalContentAlpha.current
-    val context = LocalContext.current
 
     var debugGridLayerConfig: DebugGridStateConfig by remember {
         mutableStateOf(
             DebugGridStateConfig(
                 isEnabled = false,
-                alpha = gridAlpha,
+                alpha = gridAlpha
             )
         )
     }

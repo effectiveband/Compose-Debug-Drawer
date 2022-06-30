@@ -128,7 +128,7 @@ internal fun DrawerModuleHeaderText(
     title: String,
 ) {
     Text(
-        color = MaterialTheme.colors.primary,
+        color = MaterialTheme.colors.onPrimary,
         modifier = modifier,
         text = title,
         textAlign = TextAlign.Start,

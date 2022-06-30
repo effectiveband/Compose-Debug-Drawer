@@ -49,7 +49,7 @@ enum class DebugDrawerValue {
 }
 
 /**
- * State of the [_root_ide_package_.effective.band.compose.drawer_base.DebugDrawerLayout() {
+ * State of the [DebugDrawerLayout] {
 
 }] composable.
  *
@@ -290,15 +290,14 @@ private fun Scrim(
 
 object DebugDrawerDefaults {
     val Colors: Colors = darkColors(
-        primary = Color(0xFF86D7F5),
-        primaryVariant = Color(0xFF1D668F),
-        onPrimary = Color(0xFF1D668F),
+        primary = Color(0xFFc75b39),
+        onPrimary = Color.White,
 
-        secondary = Color(0xFFFF6340),
-        onSecondary = Color.White,
+        secondary = Color(0xFFff8a65),
+        onSecondary = Color.Black,
 
-        background = Color(0xFF000000),
-        surface = Color(0xFF2D3133),
+        background = Color(0xFF2D3133),
+        surface = Color(0xFF000000),
     )
 
     val StartPadding = 56.dp
