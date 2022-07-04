@@ -47,14 +47,7 @@ android {
 dependencies {
     coreLibraryDesugaring(libs.desugaring)
 
-    debugImplementation(project(":drawer-ui-modules"))
-    debugImplementation(project(":drawer-modules"))
-    debugImplementation(project(":drawer-base"))
-    debugImplementation(project(":drawer-okhttplogger"))
-    debugImplementation(project(":drawer-retrofit"))
-    debugImplementation(project(":drawer-leak"))
-    debugImplementation(project(":drawer-timber"))
-    debugImplementation(project(":drawer-location"))
+    debugImplementation(project(":drawer"))
 
     implementation(libs.androidx.compose.activity)
 

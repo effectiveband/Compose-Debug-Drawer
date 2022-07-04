@@ -22,8 +22,9 @@ object AppConfiguration {
     private lateinit var app: Application
 
     private val endpoints = listOf(
+        Endpoint("Stage", API_URL, isMock = false),
+        Endpoint("Production", API_URL, isMock = false),
         Endpoint("Mock", "http://localhost/mock/", isMock = true),
-        Endpoint("Production", API_URL, isMock = false)
     )
 
     private val networkBehavior = NetworkBehavior.create()
