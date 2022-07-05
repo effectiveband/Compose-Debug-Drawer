@@ -5,6 +5,8 @@ import android.hardware.Sensor
 import android.hardware.SensorManager
 import androidx.compose.animation.core.TweenSpec
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
@@ -17,20 +19,23 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.dismiss
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.*
+import kotlin.math.roundToInt
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import kotlin.math.roundToInt
 
 
 /**
@@ -233,10 +238,28 @@ fun DebugDrawerLayout(
                 ) {
                     Column(
                         modifier = Modifier
+                            .background(
+                                brush = Brush.verticalGradient(
+                                    colors = listOf(
+                                        Color(0xFFE98D4B),
+                                        Color(0xFF1C1C1C),
+                                        Color(0xFF390E72),
+                                    )
+                                )
+                            )
                             .verticalScroll(rememberScrollState())
                             .then(drawerContentModifier)
                     ) {
                         drawerModules(debugDrawerState)
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Image(
+                            modifier = Modifier
+                                .padding(16.dp)
+                                .fillMaxWidth(.5f)
+                                .align(CenterHorizontally),
+                            painter = painterResource(R.drawable.effective_logo),
+                            contentDescription = null
+                        )
                     }
                 }
             }
@@ -290,14 +313,14 @@ private fun Scrim(
 
 object DebugDrawerDefaults {
     val Colors: Colors = darkColors(
-        primary = Color(0xFFc75b39),
+        primary = Color(0xFFC14EF8),
         onPrimary = Color.White,
 
-        secondary = Color(0xFFff8a65),
+        secondary = Color(0xFFF0C4FF),
         onSecondary = Color.Black,
 
         background = Color(0xFF2D3133),
-        surface = Color(0xFF000000),
+        surface = Color(0xFF434357),
     )
 
     val StartPadding = 56.dp

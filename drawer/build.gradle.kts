@@ -13,6 +13,66 @@ plugins {
 
 version = "1.0.0"
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+val androidSourcesJar = task("androidSourcesJar", type = org.gradle.jvm.tasks.Jar::class){
+    archiveClassifier.set("sources")
+    if (project.plugins.hasPlugin("com.android.library") ) {
+        from(android.sourceSets.getByName("main").java.srcDirs)
+//        from(android.sourceSets.getByName("main").kotlin.srcDirs("kotlin"))
+    } else {
+        from(sourceSets.getByName("main").allSource.srcDirs)
+    }
+}
+
+val javadocJar = task("javadocJar", type = org.gradle.jvm.tasks.Jar::class){
+    archiveClassifier.set("javadoc")
+}
+
+artifacts {
+    archives(androidSourcesJar)
+    archives(javadocJar)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("Compose Debug Drawer") {
+                groupId = "effective.band"
+                artifactId = "drawer"
+                version = version
+
+                artifact(androidSourcesJar)
+                artifact(javadocJar)
+            }
+        }
+
+        repositories {
+            maven {
+                url = uri(getLocalProperty("myMavenRepoWriteUrl"))
+                credentials {
+                    username = getLocalProperty("username").toString()
+                    password = getLocalProperty("password").toString()
+                }
+            }
+        }
+    }
+}
+
+fun getLocalProperty(key: String, file: String = "local.properties"): Any {
+    val properties = Properties()
+    val localProperties = File(file)
+    if (localProperties.isFile) {
+        InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
+            properties.load(reader)
+        }
+    } else error("File from not found")
+
+    return properties.getProperty(key)
+}
+
 android {
     compileSdk = 32
 
@@ -46,66 +106,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
-val androidSourcesJar = task("androidSourcesJar", type = Jar::class){
-    archiveClassifier.set("sources")
-    if (project.plugins.hasPlugin("com.android.library") ) {
-        from(android.sourceSets.getByName("main").java.srcDirs)
-        from(android.sourceSets.getByName("main").kotlin.srcDirs())
-
-    } else {
-        from(sourceSets.getByName("main").java.srcDirs)
-    }
-}
-
-val javadocJar = task("javadocJar", type = Jar::class){
-    archiveClassifier.set("javadoc")
-}
-
-artifacts {
-    archives(androidSourcesJar)
-    archives(javadocJar)
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("ComposeDebugDrawer") {
-            groupId = "effective.band"
-            artifactId = "drawer"
-            version = version
-
-            artifact(androidSourcesJar)
-            artifact(javadocJar)
-        }
-    }
-
-    repositories {
-        maven {
-            name = "ComposeDebugDrawer"
-            url = uri(getLocalProperty("myMavenRepoWriteUrl"))
-            credentials {
-                username = getLocalProperty("username").toString()
-                password = getLocalProperty("password").toString()
-            }
-        }
-    }
-}
-
-fun getLocalProperty(key: String, file: String = "local.properties"): Any {
-    val properties = Properties()
-    val localProperties = File(file)
-    if (localProperties.isFile) {
-        InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
-            properties.load(reader)
-        }
-    } else error("File from not found")
-
-    return properties.getProperty(key)
 }
 
 

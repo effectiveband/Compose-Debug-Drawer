@@ -47,7 +47,9 @@ android {
 dependencies {
     coreLibraryDesugaring(libs.desugaring)
 
-    debugImplementation(project(":drawer"))
+//    api("effective.band:drawer:1.0.0")
+    api(project(":drawer"))
+    lintChecks("effective.band:lint:1.0.0")
 
     implementation(libs.androidx.compose.activity)
 
