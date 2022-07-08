@@ -1,5 +1,3 @@
-import org.gradle.jvm.tasks.Jar
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileInputStream
 import java.io.InputStreamReader
 import java.util.Properties
@@ -8,70 +6,11 @@ import java.util.Properties
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("com.kezong.fat-aar")
     `maven-publish`
 }
 
 version = "1.0.0"
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
-val androidSourcesJar = task("androidSourcesJar", type = org.gradle.jvm.tasks.Jar::class){
-    archiveClassifier.set("sources")
-    if (project.plugins.hasPlugin("com.android.library") ) {
-        from(android.sourceSets.getByName("main").java.srcDirs)
-//        from(android.sourceSets.getByName("main").kotlin.srcDirs("kotlin"))
-    } else {
-        from(sourceSets.getByName("main").allSource.srcDirs)
-    }
-}
-
-val javadocJar = task("javadocJar", type = org.gradle.jvm.tasks.Jar::class){
-    archiveClassifier.set("javadoc")
-}
-
-artifacts {
-    archives(androidSourcesJar)
-    archives(javadocJar)
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("Compose Debug Drawer") {
-                groupId = "effective.band"
-                artifactId = "drawer"
-                version = version
-
-                artifact(androidSourcesJar)
-                artifact(javadocJar)
-            }
-        }
-
-        repositories {
-            maven {
-                url = uri(getLocalProperty("myMavenRepoWriteUrl"))
-                credentials {
-                    username = getLocalProperty("username").toString()
-                    password = getLocalProperty("password").toString()
-                }
-            }
-        }
-    }
-}
-
-fun getLocalProperty(key: String, file: String = "local.properties"): Any {
-    val properties = Properties()
-    val localProperties = File(file)
-    if (localProperties.isFile) {
-        InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
-            properties.load(reader)
-        }
-    } else error("File from not found")
-
-    return properties.getProperty(key)
-}
 
 android {
     compileSdk = 32
@@ -108,20 +47,61 @@ android {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("ComposeDebugDrawer") {
+            groupId = "effective.band"
+            artifactId = "drawer"
+            version = version
+
+            artifact("$buildDir/outputs/aar/drawer-debug.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri(getLocalProperty("myMavenRepoWriteUrl"))
+            credentials {
+                username = getLocalProperty("username").toString()
+                password = getLocalProperty("password").toString()
+            }
+        }
+    }
+}
+
 
 dependencies {
 
-    api(project(":drawer-ui-modules"))
-    api(project(":drawer-modules"))
-    api(project(":drawer-base"))
-    api(project(":drawer-okhttplogger"))
-    api(project(":drawer-retrofit"))
-    api(project(":drawer-leak"))
-    api(project(":drawer-timber"))
-    api(project(":drawer-location"))
-
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material.icons)
     implementation(libs.androidx.core)
+
+    implementation(libs.timber)
+
+    implementation(libs.leak.canary)
+
+    implementation(libs.okhttp.client)
+    implementation(libs.okhttp.logging)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.retrofit.mock)
+
+    implementation(libs.process.phoenix)
+}
+
+fun getLocalProperty(key: String, file: String = "local.properties"): Any {
+    val properties = Properties()
+    val localProperties = File(file)
+    if (localProperties.isFile) {
+        InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
+            properties.load(reader)
+        }
+    } else error("File from not found")
+
+    return properties.getProperty(key)
 }

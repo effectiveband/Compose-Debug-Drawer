@@ -1,9 +1,9 @@
 package effective.band.compose.drawer
 
 import android.app.Application
-import band.effective.drawer_okhttplogger.HttpLogger
-import band.effective.drawer_retrofit.DebugRetrofitConfig
-import band.effective.drawer_retrofit.Endpoint
+import effective.band.compose.drawer_modules.okhttp.HttpLogger
+import effective.band.compose.drawer_modules.retrofit.DebugRetrofitConfig
+import effective.band.compose.drawer_modules.retrofit.Endpoint
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import effective.band.compose.drawer.network.GamesApi

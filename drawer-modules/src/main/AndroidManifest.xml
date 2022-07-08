@@ -4,7 +4,7 @@
     <application>
 
         <provider
-            android:name="band.effective.drawer_timber_module.DebugDrawerTimberFileProvider"
+            android:name=".timber.DebugDrawerTimberFileProvider"
             android:authorities="${applicationId}.drawer_modules.timber_module.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true"
@@ -18,7 +18,7 @@
         </provider>
 
         <provider
-            android:name="band.effective.drawer_timber_module.LumberYardInstaller"
+            android:name=".timber.LumberYardInstaller"
             android:authorities="${applicationId}.lumberyard-installer"
             android:exported="false"
             />

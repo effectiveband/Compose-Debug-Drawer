@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import effective.band.drawer.InfoModule
 
 @Composable
 fun BuildModule(modifier: Modifier = Modifier) {

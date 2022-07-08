@@ -6,5 +6,12 @@
     <string name="http">HTTP level</string>
     <string name="show_logs">Show logs</string>
     <string name="logs">Logs</string>
+    <string name="network">Network</string>
+    <string name="drawer_retrofitEndpoint">Endpoint</string>
+    <string name="drawer_retrofitDelay">Delay</string>
+    <string name="drawer_retrofitVariance">Variance</string>
+    <string name="drawer_retrofitFailureRate">Fail rate</string>
+    <string name="drawer_retrofitErrorRate">Error rate</string>
+    <string name="drawer_retrofitErrorCode">Error code</string>
 
 </resources>

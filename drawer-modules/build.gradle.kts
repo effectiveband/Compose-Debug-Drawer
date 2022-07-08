@@ -42,7 +42,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":drawer-base"))
+    implementation(project(":drawer"))
 
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundation.layout)
@@ -56,4 +56,8 @@ dependencies {
     implementation(libs.timber)
     debugImplementation(libs.leak.canary)
     implementation(libs.androidx.core)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.retrofit.mock)
+    implementation(libs.process.phoenix)
 }

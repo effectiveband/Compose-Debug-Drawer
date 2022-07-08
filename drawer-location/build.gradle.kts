@@ -39,9 +39,7 @@ android {
 }
 
 dependencies {
-
-    implementation(project(":drawer-base"))
-    implementation(project(":drawer-modules"))
+    implementation(project(":drawer"))
 
     implementation(libs.androidx.compose.activity)
 

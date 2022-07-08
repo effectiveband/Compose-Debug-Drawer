@@ -10,16 +10,13 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://effective-android.bytesafe.dev/maven/lint/")
         }
+        flatDir {
+            setDirs(listOf("aar"))
+        }
     }
 }
 rootProject.name = "ComposeDrawer"
 include(":app")
-include(":drawer-base")
 include(":drawer-modules")
-include(":drawer-ui-modules")
-include(":drawer-retrofit")
-include(":drawer-okhttplogger")
-include(":drawer-leak")
-include(":drawer-timber")
 include(":drawer-location")
 include(":drawer")
