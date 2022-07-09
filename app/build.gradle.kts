@@ -4,6 +4,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        create("release") {
+            storeFile = file("${project.rootDir}/keystore")
+            storePassword = "123456"
+            keyAlias = "key"
+            keyPassword = "123456"
+        }
+    }
     compileSdk = 32
 
     defaultConfig {
@@ -29,6 +37,16 @@ android {
             "-Xuse-experimental=kotlin.Experimental"
         )
     }
+    buildTypes{
+        release {
+            isMinifyEnabled = false
+            isDebuggable = true
+            signingConfig = signingConfigs.getByName("release")
+        }
+        debug {
+            applicationIdSuffix = ".debug"
+        }
+    }
     buildFeatures {
         compose = true
     }
@@ -36,18 +54,13 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.2.0-rc01"
     }
-
-    packagingOptions {
-        resources.excludes.add("META-INF/licenses/**")
-        resources.excludes.add("META-INF/AL2.0")
-        resources.excludes.add("META-INF/LGPL2.1")
-    }
 }
 
+
 dependencies {
+    implementation(project(":drawer"))
     coreLibraryDesugaring(libs.desugaring)
 
-    implementation(project(":drawer"))
     implementation(project(":drawer-modules"))
     implementation(project(":drawer-location"))
 
@@ -59,7 +72,6 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.material)
-    implementation(libs.leak.canary)
     implementation(libs.timber)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)

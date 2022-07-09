@@ -1,4 +1,4 @@
-package com.alorma.composedrawer
+package effective.band.compose.drawer
 
 import androidx.compose.runtime.Composable
 

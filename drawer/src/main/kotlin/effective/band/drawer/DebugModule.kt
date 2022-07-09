@@ -16,7 +16,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun DebugDrawerModule(
     modifier: Modifier = Modifier,

@@ -10,9 +10,6 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://effective-android.bytesafe.dev/maven/lint/")
         }
-        flatDir {
-            setDirs(listOf("aar"))
-        }
     }
 }
 rootProject.name = "ComposeDrawer"

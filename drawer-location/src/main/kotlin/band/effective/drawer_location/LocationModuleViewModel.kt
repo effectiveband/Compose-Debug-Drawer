@@ -33,8 +33,11 @@ class LocationModuleViewModel(private val context: Context) {
         priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         maxWaitTime = 100
     }
+    init {
+        loadLocation()
+    }
 
-    fun loadLocation() = scope.launch {
+    fun loadLocation()  {
         if (ActivityCompat.checkSelfPermission(
                 context,
                 Manifest.permission.ACCESS_COARSE_LOCATION
@@ -46,14 +49,18 @@ class LocationModuleViewModel(private val context: Context) {
             fusedLocationClient.locationAvailability.addOnSuccessListener {
                 if (it.isLocationAvailable) {
                     fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-                        mutableState.value = location
+                        if (location != null) {
+                            mutableState.value = location
+                        }
                     }
                 } else {
                     fusedLocationClient.requestLocationUpdates(
                         locationRequest,
                         object : LocationCallback() {
                             override fun onLocationResult(result: LocationResult) {
-                                mutableState.value = result.lastLocation
+                                if (result.lastLocation != null) {
+                                    mutableState.value = result.lastLocation
+                                }
                             }
                         },
                         Looper.getMainLooper()

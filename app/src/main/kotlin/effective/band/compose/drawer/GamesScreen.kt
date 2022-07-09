@@ -31,11 +31,11 @@ import effective.band.compose.drawer.domain.Game
 
 @Composable
 fun GamesScreen() {
-    ConfigureScreen { AppContent() }
+    ConfigureScreen { isDrawerOpen -> AppContent(isDrawerOpen) }
 }
 
 @Composable
-private fun AppContent(viewModel: GamesViewModel = GamesViewModel()) {
+private fun AppContent(isDrawerOpen: Boolean, viewModel: GamesViewModel = GamesViewModel()) {
     val state by viewModel.state.collectAsState()
     Scaffold(
         topBar = {

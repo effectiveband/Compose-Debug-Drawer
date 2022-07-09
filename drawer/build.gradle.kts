@@ -6,7 +6,6 @@ import java.util.Properties
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("com.kezong.fat-aar")
     `maven-publish`
 }
 
@@ -47,27 +46,44 @@ android {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("ComposeDebugDrawer") {
-            groupId = "effective.band"
-            artifactId = "drawer"
-            version = version
+val javadocJar = task("javadocJar", type = Jar::class) {
+    archiveClassifier.set("javadoc")
+}
 
-            artifact("$buildDir/outputs/aar/drawer-debug.aar")
+artifacts {
+    archives(javadocJar)
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("ComposeDebugDrawer") {
+                groupId = "effective.band"
+                artifactId = "drawer"
+                version = version
+
+                artifact(javadocJar)
+                artifact("$buildDir/outputs/aar/drawer-release.aar")
+
+                pom {
+                    name.set("Compose Debug Drawer")
+                }
+            }
         }
-    }
 
-    repositories {
-        maven {
-            url = uri(getLocalProperty("myMavenRepoWriteUrl"))
-            credentials {
-                username = getLocalProperty("username").toString()
-                password = getLocalProperty("password").toString()
+        repositories {
+            maven {
+                url = uri(getLocalProperty("myMavenRepoWriteUrl"))
+                credentials {
+                    username = getLocalProperty("username").toString()
+                    password = getLocalProperty("password").toString()
+                }
             }
         }
     }
 }
+
 
 
 dependencies {
@@ -94,7 +110,7 @@ dependencies {
     implementation(libs.process.phoenix)
 }
 
-fun getLocalProperty(key: String, file: String = "local.properties"): Any {
+fun getLocalProperty(key: String, file: String = "${project.rootDir}/local.properties"): Any {
     val properties = Properties()
     val localProperties = File(file)
     if (localProperties.isFile) {

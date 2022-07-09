@@ -54,7 +54,7 @@ dependencies {
     implementation(libs.okhttp.client)
     implementation(libs.okhttp.logging)
     implementation(libs.timber)
-    debugImplementation(libs.leak.canary)
+    implementation(libs.leak.canary)
     implementation(libs.androidx.core)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
