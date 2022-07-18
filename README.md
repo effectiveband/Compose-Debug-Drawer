@@ -300,3 +300,6 @@ object PublishConfig {
 ```
 
 Run `publish` task
+
+## Known issues
+- `exclude` in `drawer-modules` dependency
