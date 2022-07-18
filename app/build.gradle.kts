@@ -23,7 +23,6 @@ android {
     }
 
     compileOptions {
-        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -56,13 +55,14 @@ android {
     }
 }
 
-
 dependencies {
-    implementation(project(":drawer"))
-    coreLibraryDesugaring(libs.desugaring)
-
-    implementation(project(":drawer-modules"))
-    implementation(project(":drawer-location"))
+    debugImplementation("effective.band:drawer:1.0.0")
+    debugImplementation("effective.band:drawer-modules:1.0.0") {
+        exclude("ComposeDrawer", "drawer-base")
+        exclude("ComposeDrawer", "drawer-modules")
+        exclude("null", "unspecified")
+    }
+    debugImplementation("effective.band:drawer-location:1.0.0")
 
     implementation(libs.androidx.compose.activity)
 
@@ -72,7 +72,6 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.material)
-    implementation(libs.timber)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.retrofit.mock)

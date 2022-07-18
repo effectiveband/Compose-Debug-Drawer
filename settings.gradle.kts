@@ -5,10 +5,7 @@ dependencyResolutionManagement {
         mavenCentral()
         gradlePluginPortal()
         maven {
-            url = uri("https://effective-android.bytesafe.dev/maven/debug-drawer/")
-        }
-        maven {
-            url = uri("https://effective-android.bytesafe.dev/maven/lint/")
+            url = uri("https://mymavenrepo.com/repo/nFFsiSTFBS99YlQUZYju/")
         }
     }
 }

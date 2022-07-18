@@ -1,15 +1,8 @@
-import java.io.FileInputStream
-import java.io.InputStreamReader
-import java.util.Properties
-
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     `maven-publish`
 }
-
-version = "1.0.0"
 
 android {
     compileSdk = 32
@@ -44,41 +37,45 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-}
 
-val javadocJar = task("javadocJar", type = Jar::class) {
-    archiveClassifier.set("javadoc")
-}
-
-artifacts {
-    archives(javadocJar)
-}
-
-
-afterEvaluate {
     publishing {
-        publications {
-            create<MavenPublication>("ComposeDebugDrawer") {
-                groupId = "effective.band"
-                artifactId = "drawer"
-                version = version
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+}
 
-                artifact(javadocJar)
-                artifact("$buildDir/outputs/aar/drawer-release.aar")
 
-                pom {
-                    name.set("Compose Debug Drawer")
-                }
+publishing {
+    publications {
+        create<MavenPublication>("ComposeDebugDrawer") {
+            groupId = PublishConfig.groupId
+            artifactId = PublishConfig.Drawer.artifactId
+            version = PublishConfig.drawerVersion
+
+            afterEvaluate {
+                from(components["release"])
             }
         }
+    }
 
-        repositories {
-            maven {
-                url = uri(getLocalProperty("myMavenRepoWriteUrl"))
-                credentials {
-                    username = getLocalProperty("username").toString()
-                    password = getLocalProperty("password").toString()
-                }
+    repositories {
+        maven {
+            url = uri(
+                getLocalProperty(
+                    "myMavenRepoWriteUrl",
+                    "${project.rootDir}/local.properties"
+                )
+            )
+            credentials {
+                username = getLocalProperty(
+                    "username",
+                    "${project.rootDir}/local.properties"
+                ).toString()
+                password = getLocalProperty(
+                    "password",
+                    "${project.rootDir}/local.properties"
+                ).toString()
             }
         }
     }
@@ -87,7 +84,6 @@ afterEvaluate {
 
 
 dependencies {
-
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.ui)
@@ -95,29 +91,4 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.material.icons)
     implementation(libs.androidx.core)
-
-    implementation(libs.timber)
-
-    implementation(libs.leak.canary)
-
-    implementation(libs.okhttp.client)
-    implementation(libs.okhttp.logging)
-
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.moshi)
-    implementation(libs.retrofit.mock)
-
-    implementation(libs.process.phoenix)
-}
-
-fun getLocalProperty(key: String, file: String = "${project.rootDir}/local.properties"): Any {
-    val properties = Properties()
-    val localProperties = File(file)
-    if (localProperties.isFile) {
-        InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
-            properties.load(reader)
-        }
-    } else error("File from not found")
-
-    return properties.getProperty(key)
 }

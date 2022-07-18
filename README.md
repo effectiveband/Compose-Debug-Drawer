@@ -4,6 +4,32 @@ Composable Debug Drawer for Jetpack Compose apps
 
 <img width="250" src="images/main.jpeg" />
 
+## Install
+
+Add mirror for maven repository:
+```kotlin
+repositories {
+    //...
+    maven {
+        url = uri("https://mymavenrepo.com/repo/nFFsiSTFBS99YlQUZYju/")
+    }
+}
+```
+
+Add dependencies to `build.gradle.kts` of app:
+
+```kotlin
+dependencies{
+    debugImplementation("effective.band:drawer:1.0.0")
+    debugImplementation("effective.band:drawer-modules:1.0.0") {
+        exclude("ComposeDrawer", "drawer-base")
+        exclude("ComposeDrawer", "drawer-modules")
+        exclude("null", "unspecified")
+    }
+    debugImplementation("effective.band:drawer-location:1.0.0")
+}
+```
+
 ## Setup
 
 Wrap your content with `DebugDrawerLayout`:
@@ -255,3 +281,22 @@ DebugDrawerLayout(
     }
 )
 ```
+
+## How to publish new version
+
+Add publish credentials to `local.properties`:
+```properties
+myMavenRepoWriteUrl=https://link-to-maven-rep
+username=username
+password=password
+```
+
+Update the version in `buildSrc/src/main/kotlin/PublishConfig.kt`:
+```kotlin
+object PublishConfig {
+    const val drawerVersion = "1.0.0"
+    //...
+}
+```
+
+Run `publish` task

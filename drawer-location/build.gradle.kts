@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    `maven-publish`
 }
 
 android {
@@ -36,10 +37,51 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("ComposeDebugDrawer") {
+            groupId = PublishConfig.groupId
+            artifactId = PublishConfig.DrawerLocationModule.artifactId
+            version = PublishConfig.drawerVersion
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+
+        repositories {
+            maven {
+                url = uri(
+                    getLocalProperty(
+                        "myMavenRepoWriteUrl",
+                        "${project.rootDir}/local.properties"
+                    )
+                )
+                credentials {
+                    username = getLocalProperty(
+                        "username",
+                        "${project.rootDir}/local.properties"
+                    ).toString()
+                    password = getLocalProperty(
+                        "password",
+                        "${project.rootDir}/local.properties"
+                    ).toString()
+                }
+            }
+        }
+    }
 }
 
 dependencies {
-    implementation(project(":drawer"))
+    implementation("effective.band:drawer:1.0.0")
+
 
     implementation(libs.androidx.compose.activity)
 

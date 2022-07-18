@@ -15,10 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import band.effective.drawer_location.LocationModule
-import band.effective.drawer_location.LocationModuleViewModel
 import effective.band.compose.drawer_modules.BuildModule
 import effective.band.compose.drawer_modules.DeviceModule
 import effective.band.compose.drawer_modules.design.DebugGridLayer
