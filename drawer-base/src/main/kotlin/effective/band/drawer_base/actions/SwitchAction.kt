@@ -1,4 +1,4 @@
-package effective.band.drawer.actions
+package effective.band.drawer_base.actions
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

@@ -1,4 +1,4 @@
-package effective.band.drawer.actions
+package effective.band.drawer_base.actions
 
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons

@@ -13,9 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import effective.band.compose.drawer_modules.R
-import effective.band.drawer.ActionsModule
-import effective.band.drawer.MediumText
-import effective.band.drawer.actions.DropdownSelectorAction
+import effective.band.drawer_base.ActionsModule
+import effective.band.drawer_base.MediumText
+import effective.band.drawer_base.actions.DropdownSelectorAction
 
 /**
  * Uses a [DebugRetrofitConfig] to display controls to modify the behaviour of
@@ -63,7 +63,7 @@ fun RetrofitModule(modifier: Modifier, config: DebugRetrofitConfig) {
                         .width(16.dp)
                         .weight(1f)
                 )
-                effective.band.drawer.actions.DropdownSelectorAction(
+                DropdownSelectorAction(
                     items = config.endpoints,
                     defaultValue = config.currentEndpoint,
                     itemFormatter = { endpoint -> endpoint.name },
@@ -86,7 +86,7 @@ fun RetrofitModule(modifier: Modifier, config: DebugRetrofitConfig) {
                         .weight(1f)
                 )
 
-                effective.band.drawer.actions.DropdownSelectorAction(
+                DropdownSelectorAction(
                     items = NetworkParams.DelayVariant.values().asList(),
                     enabled = isMock,
                     defaultValue = NetworkParams.DelayVariant.values()
@@ -113,13 +113,13 @@ fun RetrofitModule(modifier: Modifier, config: DebugRetrofitConfig) {
                         .width(16.dp)
                         .weight(1f)
                 )
-                effective.band.drawer.actions.DropdownSelectorAction(
+                DropdownSelectorAction(
                     items = NetworkParams.varianceValues,
                     enabled = isMock,
                     defaultValue = config.variancePercent,
                     itemFormatter = { long -> "±${long}" },
                     onItemSelected = {
-                        config.variancePercent = it as Int
+                        config.variancePercent = it
                     })
             }
 
@@ -138,7 +138,7 @@ fun RetrofitModule(modifier: Modifier, config: DebugRetrofitConfig) {
                         .width(16.dp)
                         .weight(1f)
                 )
-                effective.band.drawer.actions.DropdownSelectorAction(
+                DropdownSelectorAction(
                     modifier,
                     items = NetworkParams.failureValues,
                     enabled = isMock,
@@ -164,7 +164,7 @@ fun RetrofitModule(modifier: Modifier, config: DebugRetrofitConfig) {
                         .width(16.dp)
                         .weight(1f)
                 )
-                effective.band.drawer.actions.DropdownSelectorAction(
+                DropdownSelectorAction(
                     modifier,
                     items = NetworkParams.errorPercentValues,
                     enabled = isMock,

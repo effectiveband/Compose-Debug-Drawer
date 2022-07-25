@@ -5,12 +5,12 @@ dependencyResolutionManagement {
         mavenCentral()
         gradlePluginPortal()
         maven {
-            url = uri("https://mymavenrepo.com/repo/nFFsiSTFBS99YlQUZYju/")
+            url = uri("https://effective-android.bytesafe.dev/maven/drawer/")
         }
     }
 }
 rootProject.name = "ComposeDrawer"
 include(":app")
+include(":drawer-base")
 include(":drawer-modules")
 include(":drawer-location")
-include(":drawer")

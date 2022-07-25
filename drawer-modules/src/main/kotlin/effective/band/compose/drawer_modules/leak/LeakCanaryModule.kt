@@ -1,20 +1,15 @@
 package effective.band.compose.drawer_modules.leak
 
 import androidx.compose.material.Icon
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import effective.band.compose.drawer_modules.R
-import effective.band.drawer.ActionsModule
-import effective.band.drawer.actions.ButtonAction
-import effective.band.drawer.actions.SwitchAction
+import effective.band.drawer_base.ActionsModule
+import effective.band.drawer_base.actions.ButtonAction
+import effective.band.drawer_base.actions.SwitchAction
 import leakcanary.LeakCanary
 
 @Composable

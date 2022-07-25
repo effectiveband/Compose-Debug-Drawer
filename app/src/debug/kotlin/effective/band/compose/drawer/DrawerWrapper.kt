@@ -8,11 +8,7 @@ import androidx.compose.material.LocalContentAlpha
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
@@ -25,10 +21,10 @@ import effective.band.compose.drawer_modules.design.DesignModule
 import effective.band.compose.drawer_modules.leak.LeakCanaryModule
 import effective.band.compose.drawer_modules.okhttp.OkHttpLoggerModule
 import effective.band.compose.drawer_modules.retrofit.RetrofitModule
-import effective.band.drawer.ActionsModule
-import effective.band.drawer.DebugDrawerLayout
-import effective.band.drawer.actions.ButtonAction
-import effective.band.drawer.actions.SwitchAction
+import effective.band.drawer_base.ActionsModule
+import effective.band.drawer_base.DebugDrawerLayout
+import effective.band.drawer_base.actions.ButtonAction
+import effective.band.drawer_base.actions.SwitchAction
 
 @Composable
 fun ConfigureScreen(bodyContent: @Composable (isDrawerOpen: Boolean) -> Unit) {

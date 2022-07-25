@@ -4,7 +4,7 @@ object PublishConfig {
 
 
     object Drawer{
-        const val artifactId = "drawer"
+        const val artifactId = "drawer-base"
         const val pomName = "Compose Debug Drawer"
     }
 

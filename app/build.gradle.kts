@@ -56,12 +56,8 @@ android {
 }
 
 dependencies {
-    debugImplementation("effective.band:drawer:1.0.0")
-    debugImplementation("effective.band:drawer-modules:1.0.0") {
-        exclude("ComposeDrawer", "drawer-base")
-        exclude("ComposeDrawer", "drawer-modules")
-        exclude("null", "unspecified")
-    }
+    debugImplementation("effective.band:drawer-base:1.0.0")
+    debugImplementation("effective.band:drawer-modules:1.0.0")
     debugImplementation("effective.band:drawer-location:1.0.0")
 
     implementation(libs.androidx.compose.activity)
@@ -80,4 +76,5 @@ dependencies {
     implementation(libs.kotlinx.coroutines)
     implementation(libs.coil.compose)
     implementation(libs.accompanist.swiperefresh)
+    implementation(libs.timber)
 }

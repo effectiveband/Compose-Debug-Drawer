@@ -11,7 +11,7 @@ Add mirror for maven repository:
 repositories {
     //...
     maven {
-        url = uri("https://mymavenrepo.com/repo/nFFsiSTFBS99YlQUZYju/")
+        url = uri("https://effective-android.bytesafe.dev/maven/drawer/")
     }
 }
 ```
@@ -20,13 +20,9 @@ Add dependencies to `build.gradle.kts` of app:
 
 ```kotlin
 dependencies{
-    debugImplementation("effective.band:drawer:1.0.0")
-    debugImplementation("effective.band:drawer-modules:1.0.0") {
-        exclude("ComposeDrawer", "drawer-base")
-        exclude("ComposeDrawer", "drawer-modules")
-        exclude("null", "unspecified")
-    }
-    debugImplementation("effective.band:drawer-location:1.0.0")
+    debugImplementation("effective.band:drawer:$version")
+    debugImplementation("effective.band:drawer-modules:$version")
+    debugImplementation("effective.band:drawer-location:$version")
 }
 ```
 
@@ -286,7 +282,7 @@ DebugDrawerLayout(
 
 Add publish credentials to `local.properties`:
 ```properties
-myMavenRepoWriteUrl=https://link-to-maven-rep
+myMavenRepoWriteUrl=https://effective-android.bytesafe.dev/maven/drawer/
 username=username
 password=password
 ```
@@ -300,6 +296,3 @@ object PublishConfig {
 ```
 
 Run `publish` task
-
-## Known issues
-- `exclude` in `drawer-modules` dependency

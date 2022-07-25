@@ -1,4 +1,4 @@
-package effective.band.drawer
+package effective.band.drawer_base
 
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.LocalContentAlpha

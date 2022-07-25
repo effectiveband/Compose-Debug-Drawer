@@ -1,4 +1,4 @@
-package effective.band.drawer
+package effective.band.drawer_base
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row

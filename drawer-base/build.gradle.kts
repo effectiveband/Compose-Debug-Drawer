@@ -63,7 +63,7 @@ publishing {
         maven {
             url = uri(
                 getLocalProperty(
-                    "myMavenRepoWriteUrl",
+                    "myMavenRepoReadUrl",
                     "${project.rootDir}/local.properties"
                 )
             )

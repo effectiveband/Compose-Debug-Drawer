@@ -10,20 +10,14 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 32
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        release {
+        named("release") {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
+
     buildFeatures {
         compose = true
     }
@@ -60,7 +54,7 @@ publishing {
             maven {
                 url = uri(
                     getLocalProperty(
-                        "myMavenRepoWriteUrl",
+                        "myMavenRepoReadUrl",
                         "${project.rootDir}/local.properties"
                     )
                 )
@@ -80,20 +74,16 @@ publishing {
 }
 
 dependencies {
-    implementation("effective.band:drawer:1.0.0")
-
-
-    implementation(libs.androidx.compose.activity)
-
+    implementation("effective.band:drawer-base:1.0.0")
 
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundation.layout)
-
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.material.icons)
-    implementation(libs.timber)
     implementation(libs.androidx.core)
+
+    implementation(libs.timber)
     implementation(libs.play.services.location)
 }

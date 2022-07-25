@@ -7,21 +7,17 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import effective.band.compose.drawer_modules.R
 import effective.band.compose.drawer_modules.timber.LogsAlertDialog
-import effective.band.drawer.ActionsModule
-import effective.band.drawer.MediumText
-import effective.band.drawer.actions.ButtonAction
-import effective.band.drawer.actions.DropdownSelectorAction
+import effective.band.drawer_base.ActionsModule
+import effective.band.drawer_base.MediumText
+import effective.band.drawer_base.actions.ButtonAction
+import effective.band.drawer_base.actions.DropdownSelectorAction
 import okhttp3.logging.HttpLoggingInterceptor
 
 @Composable
