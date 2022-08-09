@@ -1,4 +1,4 @@
-package effective.band.drawer_base
+package band.effective.drawer_base
 
 import android.content.Context
 import android.hardware.Sensor

@@ -1,4 +1,4 @@
-package effective.band.drawer_base
+package band.effective.drawer_base
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column

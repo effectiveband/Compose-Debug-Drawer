@@ -56,7 +56,7 @@ android {
 }
 
 dependencies {
-    debugImplementation("effective.band:drawer-base:1.0.0")
+    debugImplementation("band.effective:drawer-base:1.0.0")
     debugImplementation("effective.band:drawer-modules:1.0.0")
     debugImplementation("effective.band:drawer-location:1.0.0")
 

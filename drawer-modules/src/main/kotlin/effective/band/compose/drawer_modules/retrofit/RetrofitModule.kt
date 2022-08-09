@@ -12,10 +12,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import band.effective.drawer_base.ActionsModule
+import band.effective.drawer_base.MediumText
+import band.effective.drawer_base.actions.DropdownSelectorAction
 import effective.band.compose.drawer_modules.R
-import effective.band.drawer_base.ActionsModule
-import effective.band.drawer_base.MediumText
-import effective.band.drawer_base.actions.DropdownSelectorAction
 
 /**
  * Uses a [DebugRetrofitConfig] to display controls to modify the behaviour of

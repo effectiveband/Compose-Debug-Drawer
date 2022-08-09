@@ -15,8 +15,8 @@ import androidx.compose.material.icons.filled.GridOn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import effective.band.drawer_base.DebugDrawerModule
-import effective.band.drawer_base.actions.SwitchAction
+import band.effective.drawer_base.DebugDrawerModule
+import band.effective.drawer_base.actions.SwitchAction
 import kotlin.math.roundToInt
 
 @Composable

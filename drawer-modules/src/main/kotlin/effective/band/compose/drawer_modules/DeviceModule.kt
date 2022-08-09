@@ -8,7 +8,7 @@ import androidx.compose.material.icons.filled.DeviceUnknown
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import effective.band.drawer_base.InfoModule
+import band.effective.drawer_base.InfoModule
 
 @Composable
 fun DeviceModule(modifier: Modifier = Modifier) {

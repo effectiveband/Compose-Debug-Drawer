@@ -1,4 +1,4 @@
-package effective.band.drawer_base
+package band.effective.drawer_base
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.requiredHeight
