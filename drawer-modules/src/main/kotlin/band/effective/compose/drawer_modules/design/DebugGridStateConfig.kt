@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.design
+package band.effective.compose.drawer_modules.design
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp

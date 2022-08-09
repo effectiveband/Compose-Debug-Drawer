@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.okhttp
+package band.effective.compose.drawer_modules.okhttp
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE

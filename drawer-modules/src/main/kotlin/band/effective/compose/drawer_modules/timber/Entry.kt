@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.timber
+package band.effective.compose.drawer_modules.timber
 
 import android.util.Log
 import androidx.compose.ui.graphics.Color

@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.retrofit
+package band.effective.compose.drawer_modules.retrofit
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences

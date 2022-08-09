@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.design
+package band.effective.compose.drawer_modules.design
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize

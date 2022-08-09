@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.retrofit
+package band.effective.compose.drawer_modules.retrofit
 
 import retrofit2.mock.NetworkBehavior
 

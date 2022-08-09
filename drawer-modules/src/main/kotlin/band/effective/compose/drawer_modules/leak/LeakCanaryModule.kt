@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.leak
+package band.effective.compose.drawer_modules.leak
 
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
@@ -11,10 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import band.effective.compose.drawer_modules.R
 import band.effective.drawer_base.ActionsModule
 import band.effective.drawer_base.actions.ButtonAction
 import band.effective.drawer_base.actions.SwitchAction
-import effective.band.compose.drawer_modules.R
 import leakcanary.LeakCanary
 
 @Composable

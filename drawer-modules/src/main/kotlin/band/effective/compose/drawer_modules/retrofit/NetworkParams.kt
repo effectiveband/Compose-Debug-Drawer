@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.retrofit
+package band.effective.compose.drawer_modules.retrofit
 
 object NetworkParams {
     val varianceValues: List<Int> = listOf(20, 40, 60)

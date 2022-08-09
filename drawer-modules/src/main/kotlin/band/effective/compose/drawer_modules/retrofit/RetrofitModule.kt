@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.retrofit
+package band.effective.compose.drawer_modules.retrofit
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import band.effective.drawer_base.ActionsModule
 import band.effective.drawer_base.MediumText
 import band.effective.drawer_base.actions.DropdownSelectorAction
-import effective.band.compose.drawer_modules.R
+import band.effective.compose.drawer_modules.R
 
 /**
  * Uses a [DebugRetrofitConfig] to display controls to modify the behaviour of

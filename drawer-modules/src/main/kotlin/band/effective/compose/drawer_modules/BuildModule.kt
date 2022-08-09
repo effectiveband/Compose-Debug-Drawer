@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules
+package band.effective.compose.drawer_modules
 
 import android.content.Context
 import android.os.Build

@@ -1,4 +1,4 @@
-package effective.band.compose.drawer_modules.okhttp
+package band.effective.compose.drawer_modules.okhttp
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,13 +16,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import band.effective.compose.drawer_modules.timber.LogsAlertDialog
 import band.effective.drawer_base.ActionsModule
 import band.effective.drawer_base.MediumText
 import band.effective.drawer_base.actions.ButtonAction
 import band.effective.drawer_base.actions.DropdownSelectorAction
-import effective.band.compose.drawer_modules.R
-import effective.band.compose.drawer_modules.timber.LogsAlertDialog
 import okhttp3.logging.HttpLoggingInterceptor
+import band.effective.compose.drawer_modules.R
 
 @Composable
 fun OkHttpLoggerModule(modifier: Modifier, httpLogger: HttpLogger) {
