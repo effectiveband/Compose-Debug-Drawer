@@ -20,9 +20,9 @@ Add dependencies to `build.gradle.kts` of app:
 
 ```kotlin
 dependencies{
-    debugImplementation("effective.band:drawer:$version")
-    debugImplementation("effective.band:drawer-modules:$version")
-    debugImplementation("effective.band:drawer-location:$version")
+    debugImplementation("band.effective:drawer:$version")
+    debugImplementation("band.effective:drawer-modules:$version")
+    debugImplementation("band.effective:drawer-location:$version")
 }
 ```
 
