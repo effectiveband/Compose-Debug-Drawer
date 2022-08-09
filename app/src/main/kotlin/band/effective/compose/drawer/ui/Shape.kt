@@ -1,4 +1,4 @@
-package effective.band.compose.drawer.ui
+package band.effective.compose.drawer.ui
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

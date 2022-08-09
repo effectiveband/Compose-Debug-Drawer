@@ -1,9 +1,9 @@
-package effective.band.compose.drawer
+package band.effective.compose.drawer
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import effective.band.compose.drawer.ui.ComposeDrawerTheme
+import band.effective.compose.drawer.ui.ComposeDrawerTheme
 
 class MainActivity : ComponentActivity() {
 

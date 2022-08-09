@@ -1,4 +1,4 @@
-package effective.band.compose.drawer
+package band.effective.compose.drawer
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,10 +24,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import band.effective.compose.drawer.domain.Game
 import coil.compose.AsyncImage
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import effective.band.compose.drawer.domain.Game
 
 @Composable
 fun GamesScreen() {

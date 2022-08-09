@@ -1,10 +1,10 @@
-package effective.band.compose.drawer
+package band.effective.compose.drawer
 
-import effective.band.compose.drawer.domain.Game
-import effective.band.compose.drawer.domain.GamesResponse
-import effective.band.compose.drawer.domain.Image
-import effective.band.compose.drawer.domain.Platform
-import effective.band.compose.drawer.network.GamesApi
+import band.effective.compose.drawer.domain.Game
+import band.effective.compose.drawer.domain.GamesResponse
+import band.effective.compose.drawer.domain.Image
+import band.effective.compose.drawer.domain.Platform
+import band.effective.compose.drawer.network.GamesApi
 import retrofit2.mock.BehaviorDelegate
 import retrofit2.mock.MockRetrofit
 

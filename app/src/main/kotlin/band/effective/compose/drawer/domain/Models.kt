@@ -1,4 +1,4 @@
-package effective.band.compose.drawer.domain
+package band.effective.compose.drawer.domain
 
 data class GamesResponse(val results: List<Game>)
 

@@ -1,4 +1,4 @@
-package effective.band.compose.drawer
+package band.effective.compose.drawer
 
 import androidx.compose.runtime.Composable
 

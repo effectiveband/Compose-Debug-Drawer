@@ -1,4 +1,4 @@
-package effective.band.compose.drawer.network
+package band.effective.compose.drawer.network
 
 import okhttp3.HttpUrl
 import okhttp3.Interceptor

@@ -1,4 +1,4 @@
-package effective.band.compose.drawer
+package band.effective.compose.drawer
 
 import android.app.Application
 import timber.log.Timber

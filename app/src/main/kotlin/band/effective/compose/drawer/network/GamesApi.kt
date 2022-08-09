@@ -1,6 +1,6 @@
-package effective.band.compose.drawer.network
+package band.effective.compose.drawer.network
 
-import effective.band.compose.drawer.domain.GamesResponse
+import band.effective.compose.drawer.domain.GamesResponse
 import retrofit2.http.GET
 
 interface GamesApi {

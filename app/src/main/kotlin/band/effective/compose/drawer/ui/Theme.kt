@@ -1,4 +1,4 @@
-package effective.band.compose.drawer.ui
+package band.effective.compose.drawer.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

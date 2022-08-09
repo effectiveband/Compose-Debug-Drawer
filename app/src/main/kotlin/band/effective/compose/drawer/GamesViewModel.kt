@@ -1,10 +1,11 @@
-package effective.band.compose.drawer
+package band.effective.compose.drawer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import effective.band.compose.drawer.domain.Game
-import effective.band.compose.drawer.domain.GamesResponse
-import effective.band.compose.drawer.network.GamesApi
+import band.effective.compose.drawer.AppConfiguration
+import band.effective.compose.drawer.domain.Game
+import band.effective.compose.drawer.domain.GamesResponse
+import band.effective.compose.drawer.network.GamesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

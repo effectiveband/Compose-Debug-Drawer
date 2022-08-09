@@ -1,13 +1,11 @@
-package effective.band.compose.drawer
+package band.effective.compose.drawer
 
-import android.app.Activity
 import android.app.Application
-import android.view.ViewGroup
+import band.effective.compose.drawer.network.GamesApi
+import band.effective.compose.drawer.network.HttpConfiguration
+import band.effective.compose.drawer.network.HttpConfiguration.API_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import effective.band.compose.drawer.network.GamesApi
-import effective.band.compose.drawer.network.HttpConfiguration
-import effective.band.compose.drawer.network.HttpConfiguration.API_URL
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
