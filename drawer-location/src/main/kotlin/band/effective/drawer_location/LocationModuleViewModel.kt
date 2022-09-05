@@ -11,16 +11,12 @@ import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class LocationModuleViewModel(private val context: Context) {
 
-    private val scope = CoroutineScope(Dispatchers.Main)
     private val mutableState = MutableStateFlow<Location?>(null)
     val state = mutableState.asStateFlow()
 

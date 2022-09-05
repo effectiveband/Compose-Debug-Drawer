@@ -1,6 +1,6 @@
 object PublishConfig {
     const val drawerVersion = "1.0.0"
-    const val groupId = "effective.band"
+    const val groupId = "band.effective"
 
 
     object Drawer{
