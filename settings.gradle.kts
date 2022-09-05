@@ -5,7 +5,7 @@ dependencyResolutionManagement {
         mavenCentral()
         gradlePluginPortal()
         maven {
-            url = uri("https://effective-android.bytesafe.dev/maven/drawer/")
+            url = uri("https://repsy.io/mvn/effective/compose-debug-drawer/")
         }
     }
 }
