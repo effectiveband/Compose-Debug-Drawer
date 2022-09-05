@@ -11,7 +11,7 @@ Add mirror for maven repository:
 repositories {
     //...
     maven {
-        url = uri("https://effective-android.bytesafe.dev/maven/drawer/")
+        url = uri("https://repsy.io/mvn/effective/compose-debug-drawer/")
     }
 }
 ```
@@ -20,9 +20,9 @@ Add dependencies to `build.gradle.kts` of app:
 
 ```kotlin
 dependencies{
-    debugImplementation("effective.band:drawer:$version")
-    debugImplementation("effective.band:drawer-modules:$version")
-    debugImplementation("effective.band:drawer-location:$version")
+    debugImplementation("band.effective:drawer:$version")
+    debugImplementation("band.effective:drawer-modules:$version")
+    debugImplementation("band.effective:drawer-location:$version")
 }
 ```
 
@@ -282,7 +282,7 @@ DebugDrawerLayout(
 
 Add publish credentials to `local.properties`:
 ```properties
-myMavenRepoWriteUrl=https://effective-android.bytesafe.dev/maven/drawer/
+myMavenRepoWriteUrl=https://repsy.io/mvn/effective/compose-debug-drawer/
 username=username
 password=password
 ```

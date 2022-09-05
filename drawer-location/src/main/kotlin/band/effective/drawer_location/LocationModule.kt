@@ -9,7 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import effective.band.drawer_base.InfoModule
+import band.effective.drawer_base.InfoModule
 
 @Composable
 fun LocationModule(

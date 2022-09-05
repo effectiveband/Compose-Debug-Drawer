@@ -74,7 +74,7 @@ publishing {
 }
 
 dependencies {
-    implementation("effective.band:drawer-base:1.0.0")
+    implementation("band.effective:drawer-base:1.0.0")
 
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundation.layout)
